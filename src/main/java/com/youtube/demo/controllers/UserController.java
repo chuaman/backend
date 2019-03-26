@@ -49,6 +49,22 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(value ="/deleteUser", method = RequestMethod.POST)
+	public void deleteUser(@RequestBody String Userjson) throws Exception {
+
+		this.mapper = new ObjectMapper();	
+			
+		 User user = this.mapper.readValue(Userjson, User.class);
+		 
+		 if(user.getId() == null) {
+			 throw new Exception("El Id esta nulo");
+		 }
+		 this.userService.deleteUser(user.getId());
+		
+		 
+	}
+	
+
 	
 	
 	private boolean validate(User user) {

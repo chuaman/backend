@@ -19,4 +19,12 @@ public interface UserService {
 	 */
 	List<User> finAll();
 
+	/**
+	 * Elimina un id recibidos
+	 * @param id
+	 */
+	void deleteUser(Long id);
+	
+
+
 }
